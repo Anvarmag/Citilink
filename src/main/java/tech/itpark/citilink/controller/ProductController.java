@@ -44,10 +44,15 @@ public class ProductController {
     }
 
     @PostMapping("/iphones")
-    public void add(@RequestBody Iphone product) { manager.add(product);}
+    public void add(@RequestBody Iphone product) {
+        manager.add(product);
+    }
 
     @PostMapping("/laptops")
-    public void add(@RequestBody Laptop product)  { manager.add(product);}
+    public void add(@RequestBody Laptop product) {
+        manager.add(product);
+    }
+
 
     @PutMapping("/{id}")
     public Product updateById(@PathVariable long id, @RequestBody ProductUpdate dto) {
@@ -56,6 +61,12 @@ public class ProductController {
 
     @DeleteMapping("/{id}")
     public void removeById(@PathVariable long id) {
+
         manager.removeById(id);
+    }
+
+    @PostMapping("/{id}")
+    public Product getById(@PathVariable long id) {
+        return manager.getById(id);
     }
 }
